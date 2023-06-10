@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp1.klients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Наиболее частые гости:" Height="222" Width="677" FontSize="20" ResizeMode="NoResize" Icon="/Images/icon.png">
+    <Grid>
+        <DataGrid Name="dataGrid1" AutomationProperties.IsOffscreenBehavior="Offscreen" AutoGenerateColumns="False" RenderTransformOrigin="0.5, 0.5" Canvas.Left="16" Canvas.Top="7" Height="206" Width="677" Background="#FF5B0D0D" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-1,0,0,0" FontSize="20">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform></ScaleTransform>
+                    <SkewTransform></SkewTransform>
+                    <RotateTransform Angle="-0.153"></RotateTransform>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding fio_res, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="360"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding num_res,  Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="300" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

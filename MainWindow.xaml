@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Приложение для ресторана" Icon="/Images/icon.png" Height="448" Width="917" MinHeight="448" MinWidth="917" Closed="Window_Closed">
+    <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="124*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="108*"/>
+            <RowDefinition Height="183*"/>
+            <RowDefinition Height="61*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF250808"/>
+                <GradientStop Color="#FFF91A1A" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Image Source="/Images/logo.png" Grid.Column="1" Margin="471,100,-148,-36" Grid.RowSpan="3" Grid.ColumnSpan="2" />
+        <PasswordBox x:Name="p1" HorizontalAlignment="Left" Margin="19,112,0,0" VerticalAlignment="Top" Width="218" Height="44" FontSize="36" Grid.Row="1" Grid.Column="1" />
+        <Button Style="{StaticResource MyButton}" Content="Войти" HorizontalAlignment="Left" Margin="19,161,0,0" VerticalAlignment="Top" Height="37" Width="158" Click="Button_Click_1" FontSize="24" Background="#FF370000" Foreground="#FFB1B1B1" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="ПРИЛОЖЕНИЕ ДЛЯ РЕСТОРАННОГО БИЗНЕСА" VerticalAlignment="Center" FontSize="48" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FF7F3333" Grid.Column="1" Height="111" Width="726"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,8,0,0" TextWrapping="Wrap" Text="Введите свой персональный пароль" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFD6A2A2" Width="498" Grid.Row="1" Grid.Column="1" Height="91"/>
+        <TextBlock HorizontalAlignment="Left" Margin="19,14,0,0" TextWrapping="Wrap" Text="При отсутствии пароля обратитесь за паролем к администратору или ответственному лицу" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFD85858" Width="605" FontSize="20" Grid.Row="2" Grid.Column="1" Height="52"/>
+
+
+    </Grid>
+</Window>

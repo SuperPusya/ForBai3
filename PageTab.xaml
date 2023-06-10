@@ -1,0 +1,64 @@
+﻿<Page x:Class="WpfApp1.PageTab"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageTab">
+    <Page.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FFD66625" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid Name="dataGrid1" AutomationProperties.IsOffscreenBehavior="Offscreen" AutoGenerateColumns="False" RenderTransformOrigin="0.5, 0.5" Canvas.Left="16" Canvas.Top="7" Height="245" Width="341" Background="#FFFFA537" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-1,-2,0,0" FontSize="20">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform></ScaleTransform>
+                    <SkewTransform></SkewTransform>
+                    <RotateTransform Angle="-0.153"></RotateTransform>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код" Binding="{Binding k_tab, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+                <DataGridTextColumn Header="Расположение" Binding="{Binding location,  Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="250" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="combo" HorizontalAlignment="Left" Margin="111,254,0,0" VerticalAlignment="Top" Width="229" FontSize="22" DropDownClosed="combo_DropDownClosed"/>
+        <Button Style="{StaticResource MyButton}" Content="Удалить" HorizontalAlignment="Left" Height="45" Margin="388,35,0,0" VerticalAlignment="Top" Width="273" FontSize="24" Click="Button_Click" Background="#FFB15D2D" Foreground="White" FontWeight="Bold"/>
+        <Button Style="{StaticResource MyButton}" Content="Обновить" HorizontalAlignment="Left" Height="45" Margin="388,108,0,0" VerticalAlignment="Top" Width="273" FontSize="24" Click="Button_Click_1" Background="#FFB15D2D" Foreground="White" FontWeight="Bold"/>
+        <Button Style="{StaticResource MyButton}" Content="Сброс фильтра" HorizontalAlignment="Left" Height="50" Margin="111,292,0,0" VerticalAlignment="Top" Width="229" FontSize="24" Click="Button_Click_2" Background="#FF6B381A" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+    </Grid>
+</Page>
